@@ -16,11 +16,15 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
 
     protected List<ProdutoAbstrato> listaProdutos = new ArrayList<>();
 
-    private List<ProdutoAbstrato> listaProdutosCarrinho = new ArrayList<>();
+    private  List<ProdutoAbstrato> listaProdutosCarrinho = new ArrayList<>();
 
-    public MenuClienteAbstract(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
+    public MenuClienteAbstract(Scanner sc, List<ProdutoAbstrato> listaProdutos,List<ProdutoAbstrato> listaProdutosCarrinho ) {
         this.listaProdutos = listaProdutos;
         this.sc = sc;
+        this.listaProdutosCarrinho = listaProdutosCarrinho;
+    }
+
+    public MenuClienteAbstract(List<ProdutoAbstrato> listaProdutosCarrinho){
     }
 
     @Override
@@ -137,9 +141,8 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
             System.out.println(cadaProduto);
         }
     }
-
-    public double precoCarrinhoParaPgto(){
-        double valor=0;
+    public double precoCarrinhoParaPgto() {
+        double valor = 0;
         for (ProdutoAbstrato cadaProduto : listaProdutosCarrinho) {
             valor += cadaProduto.getPreco();
         }
@@ -150,8 +153,16 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
     public void pagamento(){
         VisualizarFormasDePagamentoClasseConcreta visualizarFormasDePagamentoClasseConcreta = new VisualizarFormasDePagamentoClasseConcreta();
         SelecionarOpcaoPagamentosClasseConcreta selecionarOpcaoPagamentosClasseConcreta = new SelecionarOpcaoPagamentosClasseConcreta();
+
         GatewayDePagamento gatewayDePagamento = new SistemaDePagamentoMenu(selecionarOpcaoPagamentosClasseConcreta, visualizarFormasDePagamentoClasseConcreta);
         gatewayDePagamento.pagar();
     }
 
+    public List<ProdutoAbstrato> getListaProdutosCarrinho() {
+        return listaProdutosCarrinho;
+    }
+
+    public void setListaProdutosCarrinho(List<ProdutoAbstrato> listaProdutosCarrinho) {
+        this.listaProdutosCarrinho = listaProdutosCarrinho;
+    }
 }

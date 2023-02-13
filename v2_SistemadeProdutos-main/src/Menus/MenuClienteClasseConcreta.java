@@ -1,16 +1,16 @@
 package Menus;
 
 
-import Pagamento.Testador;
+
 import Produtos.ProdutoAbstrato;
 
 import java.util.*;
 
 public class MenuClienteClasseConcreta extends MenuClienteAbstract {
-    public MenuClienteClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
-        super(sc, listaProdutos);
-    }
 
+    public MenuClienteClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos, List<ProdutoAbstrato> listaProdutosCarrinho) {
+        super(sc, listaProdutos, listaProdutosCarrinho);
+    }
     public void menuCliente() {
         int opcaoMenuCliente;
         do {

@@ -1,8 +1,21 @@
 package Pagamento;
 
+import Menus.MenuClienteClasseConcreta;
+
 public class FaturamentoPj implements OpcaoDePagamento {
+
+    private MenuClienteClasseConcreta menuClienteClasseConcreta;
+
     @Override
     public void pagar() {
-        System.out.println("Pagamento via cartão de crédito");
+
+        if (analiseAntiFraude() == true) {
+            System.out.println("Pagamento via faturamento");
+        }
     }
+    @Override
+    public boolean analiseAntiFraude() {
+        return true;
+    }
+
 }
