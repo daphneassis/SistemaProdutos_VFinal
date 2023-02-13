@@ -1,6 +1,7 @@
 package Menus;
 
 
+import Pagamento.Testador;
 import Produtos.ProdutoAbstrato;
 
 import java.util.*;
@@ -21,6 +22,7 @@ public class MenuClienteClasseConcreta extends MenuClienteAbstract {
             System.out.println("5 - Ordenar por preço(ordem crescente e descrescente)");
             System.out.println("6 - Adicionar Produto ao Carrinho");
             System.out.println("7 - Visualizar lista de Produtos no Carrinho");// adicionar o pagamento
+            System.out.println("8 - Pagamento");
             System.out.println("0 - Sair do Menu Cliente");
             System.out.println("Entre com a opção desejada: ");
             opcaoMenuCliente = sc.nextInt();
@@ -47,8 +49,12 @@ public class MenuClienteClasseConcreta extends MenuClienteAbstract {
                     selecionarProdutoParaCarrinho();
                     break;
                 case 7:
-                    verListaProdutosCarrinho();// testar
+                    verListaProdutosCarrinho();
+                    precoCarrinhoParaPgto();
                      break;
+                case 8:
+                    pagamento();
+                    break;
             }
         } while (opcaoMenuCliente != 0);
     }

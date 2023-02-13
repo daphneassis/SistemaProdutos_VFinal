@@ -2,6 +2,10 @@ package Menus;
 
 import Enums.EnumCategoria;
 import Interfaces.MenuClienteAcoes;
+import Pagamento.GatewayDePagamento;
+import Pagamento.SelecionarOpcaoPagamentosClasseConcreta;
+import Pagamento.SistemaDePagamentoMenu;
+import Pagamento.VisualizarFormasDePagamentoClasseConcreta;
 import Produtos.ProdutoAbstrato;
 
 import java.util.*;
@@ -134,20 +138,20 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
         }
     }
 
-    public void precoTotalCarrinho() {
+    public double precoCarrinhoParaPgto(){
         double valor=0;
         for (ProdutoAbstrato cadaProduto : listaProdutosCarrinho) {
             valor += cadaProduto.getPreco();
         }
-        System.out.println("A soma é igual ao "+ valor);
+        System.out.println("O preço total do carrinho é de:R$ " + valor);
+        return valor;
     }
 
-    // testar pra ver se funciona sem
-    public List<ProdutoAbstrato> getListaProdutos() {
-        return listaProdutos;
+    public void pagamento(){
+        VisualizarFormasDePagamentoClasseConcreta visualizarFormasDePagamentoClasseConcreta = new VisualizarFormasDePagamentoClasseConcreta();
+        SelecionarOpcaoPagamentosClasseConcreta selecionarOpcaoPagamentosClasseConcreta = new SelecionarOpcaoPagamentosClasseConcreta();
+        GatewayDePagamento gatewayDePagamento = new SistemaDePagamentoMenu(selecionarOpcaoPagamentosClasseConcreta, visualizarFormasDePagamentoClasseConcreta);
+        gatewayDePagamento.pagar();
     }
 
-    public void setListaProdutos(List<ProdutoAbstrato> listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
 }
