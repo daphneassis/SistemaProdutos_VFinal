@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public abstract class MenuAdmAbstract implements MenuAdmAcoes {
+
+
     protected Scanner sc;
     protected  List<ProdutoAbstrato> listaProdutos = new ArrayList<>();
     private  SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

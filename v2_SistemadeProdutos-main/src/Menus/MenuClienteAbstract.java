@@ -10,7 +10,7 @@ import Produtos.ProdutoAbstrato;
 
 import java.util.*;
 
-public abstract class MenuClienteAbstract implements MenuClienteAcoes {
+public class MenuClienteAbstract implements MenuClienteAcoes {
 
     protected static Scanner sc;
 
@@ -18,13 +18,10 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
 
     private  List<ProdutoAbstrato> listaProdutosCarrinho = new ArrayList<>();
 
-    public MenuClienteAbstract(Scanner sc, List<ProdutoAbstrato> listaProdutos,List<ProdutoAbstrato> listaProdutosCarrinho ) {
+    public MenuClienteAbstract(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
         this.listaProdutos = listaProdutos;
         this.sc = sc;
-        this.listaProdutosCarrinho = listaProdutosCarrinho;
-    }
-
-    public MenuClienteAbstract(List<ProdutoAbstrato> listaProdutosCarrinho){
+        this.listaProdutosCarrinho= listaProdutosCarrinho;
     }
 
     @Override
@@ -155,7 +152,7 @@ public abstract class MenuClienteAbstract implements MenuClienteAcoes {
         SelecionarOpcaoPagamentosClasseConcreta selecionarOpcaoPagamentosClasseConcreta = new SelecionarOpcaoPagamentosClasseConcreta();
 
         GatewayDePagamento gatewayDePagamento = new SistemaDePagamentoMenu(selecionarOpcaoPagamentosClasseConcreta, visualizarFormasDePagamentoClasseConcreta);
-        gatewayDePagamento.pagar();
+        gatewayDePagamento.pagar(listaProdutosCarrinho);
     }
 
     public List<ProdutoAbstrato> getListaProdutosCarrinho() {

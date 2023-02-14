@@ -14,7 +14,6 @@ public class Main {
 
         int opcaoMenuInicial;
         List<ProdutoAbstrato> listaProdutos= new ArrayList<>();
-        List <ProdutoAbstrato> listaProdutosCarrinho = new ArrayList<>();
 
         do {
             MenuInicial.menuInicial();
@@ -28,7 +27,7 @@ public class Main {
             if (opcaoMenuInicial == 2) {
                 boolean abreMenuCliente = ValidarCliente.validaClienteLoginSenha(new ClienteCadastro(sc).cadastroCliente(), new ClienteLogin(sc).loginCliente());
                 if (abreMenuCliente) {
-                    new MenuClienteClasseConcreta(sc,listaProdutos,listaProdutosCarrinho).menuCliente();
+                    new MenuClienteClasseConcreta(sc,listaProdutos).menuCliente();
                 }
             }
         } while (opcaoMenuInicial != 0);

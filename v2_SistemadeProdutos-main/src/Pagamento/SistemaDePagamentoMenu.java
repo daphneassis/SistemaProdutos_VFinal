@@ -1,5 +1,9 @@
 package Pagamento;
 
+import Produtos.ProdutoAbstrato;
+
+import java.util.List;
+
 public class SistemaDePagamentoMenu implements GatewayDePagamento {
 
     private final SelecionarOpcoesPagamentosInterface selecionarOpcoesPagamentosInterface;
@@ -11,9 +15,9 @@ public class SistemaDePagamentoMenu implements GatewayDePagamento {
     }
 
     @Override
-    public void pagar() {
+    public void pagar(List<ProdutoAbstrato> listaProdutosCarrinho) {
         OpcaoDePagamento[] opcoesArray= visualizarFormasDePagamentoInterface.visualizarFormasDePagamento();
         OpcaoDePagamento opcaoDePagamento = selecionarOpcoesPagamentosInterface.escolherOpcao(opcoesArray);
-        opcaoDePagamento.pagar();
+        opcaoDePagamento.pagar(listaProdutosCarrinho);
     }
 }

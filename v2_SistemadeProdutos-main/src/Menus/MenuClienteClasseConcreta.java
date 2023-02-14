@@ -8,8 +8,8 @@ import java.util.*;
 
 public class MenuClienteClasseConcreta extends MenuClienteAbstract {
 
-    public MenuClienteClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos, List<ProdutoAbstrato> listaProdutosCarrinho) {
-        super(sc, listaProdutos, listaProdutosCarrinho);
+    public MenuClienteClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
+        super(sc,listaProdutos);
     }
     public void menuCliente() {
         int opcaoMenuCliente;
@@ -21,7 +21,7 @@ public class MenuClienteClasseConcreta extends MenuClienteAbstract {
             System.out.println("4 - Ordenar por nome(ordem crescente e descrescente)");
             System.out.println("5 - Ordenar por preço(ordem crescente e descrescente)");
             System.out.println("6 - Adicionar Produto ao Carrinho");
-            System.out.println("7 - Visualizar lista de Produtos no Carrinho");// adicionar o pagamento
+            System.out.println("7 - Visualizar lista de Produtos no Carrinho");
             System.out.println("8 - Pagamento");
             System.out.println("0 - Sair do Menu Cliente");
             System.out.println("Entre com a opção desejada: ");
