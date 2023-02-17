@@ -1,7 +1,7 @@
 package Produtos;
 
-import Enums.EnumCategoria;
-import Interfaces.ProdutoAcoes;
+import enums.EnumCategoria;
+import acoesMenu.ProdutoAcoes;
 
 
 public class Livro extends ProdutoAbstrato implements ProdutoAcoes {

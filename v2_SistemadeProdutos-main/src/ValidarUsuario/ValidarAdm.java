@@ -1,6 +1,6 @@
-package ValidarUsuario;
+package validarUsuario;
 
-import Pessoas.Administrador;
+import pessoas.Administrador;
 
 public class ValidarAdm {
 

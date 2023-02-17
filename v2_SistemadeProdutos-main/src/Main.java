@@ -1,10 +1,9 @@
 
-import Menus.*;
-import Produtos.ProdutoAbstrato;
-import ValidarUsuario.ValidarAdm;
-import ValidarUsuario.ValidarCliente;
+import menus.*;
+import validarUsuario.ValidarAdm;
+import validarUsuario.ValidarCliente;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
 
         int opcaoMenuInicial;
-        List<ProdutoAbstrato> listaProdutos= new ArrayList<>();
 
         do {
             MenuInicial.menuInicial();
@@ -21,13 +19,13 @@ public class Main {
             if (opcaoMenuInicial == 1) {
                 boolean abreMenuAdm = ValidarAdm.validaAdmLoginSenha(new AdmLogin(sc).loginAdm());
                 if (abreMenuAdm) {
-                    new MenuAdmClasseConcreta(sc, listaProdutos).menuAdministrador();
+                    new MenuAdmClasseConcreta(sc).menuAdministrador();
                 }
             }
             if (opcaoMenuInicial == 2) {
                 boolean abreMenuCliente = ValidarCliente.validaClienteLoginSenha(new ClienteCadastro(sc).cadastroCliente(), new ClienteLogin(sc).loginCliente());
                 if (abreMenuCliente) {
-                    new MenuClienteClasseConcreta(sc,listaProdutos).menuCliente();
+                    new MenuClienteClasseConcreta(sc).menuCliente();
                 }
             }
         } while (opcaoMenuInicial != 0);

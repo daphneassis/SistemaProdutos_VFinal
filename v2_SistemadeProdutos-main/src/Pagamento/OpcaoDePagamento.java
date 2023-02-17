@@ -1,4 +1,4 @@
-package Pagamento;
+package pagamento;
 
 import Produtos.ProdutoAbstrato;
 
@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface OpcaoDePagamento {
 
-    void pagar(List<ProdutoAbstrato> listaProdutosCarrinho);
+    void pagar();
     boolean analiseAntiFraude();
 }

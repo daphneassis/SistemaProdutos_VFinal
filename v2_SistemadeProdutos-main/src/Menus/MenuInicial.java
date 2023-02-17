@@ -1,6 +1,4 @@
-package Menus;
-
-import Pessoas.Administrador;
+package menus;
 
 import java.util.Scanner;
 

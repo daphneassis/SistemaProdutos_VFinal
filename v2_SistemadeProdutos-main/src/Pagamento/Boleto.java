@@ -1,15 +1,11 @@
-package Pagamento;
+package pagamento;
 
-import Produtos.ProdutoAbstrato;
+public class Boleto implements pagamento.OpcaoDePagamento {
 
-import java.util.List;
-
-public class Boleto implements OpcaoDePagamento {
-
-@Override
-    public void pagar(List<ProdutoAbstrato> listaProdutosCarrinho) {
-        if (analiseAntiFraude() == true) {
-            System.out.println("Pagamento via Boleto aceito!");
+    @Override
+    public void pagar() {
+        if (analiseAntiFraude()) {
+            System.out.println("pagamento via Boleto aceito!");
         }
     }
 

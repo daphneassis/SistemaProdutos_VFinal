@@ -1,31 +1,33 @@
-package Pagamento;
+package pagamento;
 
 
-import Menus.MenuClienteClasseConcreta;
-import Produtos.ProdutoAbstrato;
+import carrinhoDeCompras.CarrinhoDeCompras;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class CartaoDeCredito  implements OpcaoDePagamento  {
 
-    protected List <ProdutoAbstrato> listaProdutos;
+public class CartaoDeCredito implements OpcaoDePagamento {
 
-    protected  MenuClienteClasseConcreta menuClienteClasseConcreta = new MenuClienteClasseConcreta(null, listaProdutos);
+    private CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras();
 
     @Override
-    public void pagar(List<ProdutoAbstrato> listaProdutosCarrinho) {
+    public void pagar() {
         if (analiseAntiFraude() == true) {
-            System.out.println("Pagamento via Cartão de Crédito aprovado!");
+            System.out.println("pagamento via Cartão de Crédito aprovado!");
+        } else {
+            System.out.println("Forma de pagamento não aceita para esse valor");
         }
     }
 
     @Override
     public boolean analiseAntiFraude() {
-        if (menuClienteClasseConcreta.precoCarrinhoParaPgto()>= 2000) {
+        if (carrinhoDeCompras.precoCarrinhoParaPgto()>= 2000) {
             return false;
         } else {
             return true;
         }
     }
 }
+
+
+

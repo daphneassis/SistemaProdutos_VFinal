@@ -1,17 +1,19 @@
-package Menus;
+package menus;
 
 
 
-import Produtos.ProdutoAbstrato;
+import carrinhoDeCompras.CarrinhoDeCompras;
 
 import java.util.*;
 
 public class MenuClienteClasseConcreta extends MenuClienteAbstract {
 
-    public MenuClienteClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
-        super(sc,listaProdutos);
+    private CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras();
+
+    public MenuClienteClasseConcreta(Scanner sc) {
+        super(sc);
     }
-    public void menuCliente() {
+    public  void menuCliente() {
         int opcaoMenuCliente;
         do {
             System.out.println("-------Menu Cliente ------: ");
@@ -46,14 +48,14 @@ public class MenuClienteClasseConcreta extends MenuClienteAbstract {
                     ordenarPorPreco();
                     break;
                 case 6:
-                    selecionarProdutoParaCarrinho();
+                    carrinhoDeCompras.selecionarProdutoParaCarrinho();
                     break;
                 case 7:
-                    verListaProdutosCarrinho();
-                    precoCarrinhoParaPgto();
+                    carrinhoDeCompras.verListaProdutosCarrinho();
+                    carrinhoDeCompras.precoCarrinhoParaPgto();
                      break;
                 case 8:
-                    pagamento();
+                    carrinhoDeCompras.pagamento();
                     break;
             }
         } while (opcaoMenuCliente != 0);

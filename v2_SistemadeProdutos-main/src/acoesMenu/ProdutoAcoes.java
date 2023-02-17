@@ -1,6 +1,4 @@
-package Interfaces;
-
-import Enums.EnumCategoria;
+package acoesMenu;
 
 public interface ProdutoAcoes {
 

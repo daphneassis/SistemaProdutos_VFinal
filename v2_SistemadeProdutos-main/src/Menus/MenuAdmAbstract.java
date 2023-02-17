@@ -1,8 +1,8 @@
-package Menus;
+package menus;
 
-import Enums.EnumCategoria;
-import Enums.EnumSecoesMercado;
-import Interfaces.MenuAdmAcoes;
+import enums.EnumCategoria;
+import enums.EnumSecoesMercado;
+import acoesMenu.MenuAdmAcoes;
 import Produtos.Informatica;
 import Produtos.Livro;
 import Produtos.Mercado;
@@ -10,7 +10,6 @@ import Produtos.ProdutoAbstrato;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -19,17 +18,15 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
 
 
     protected Scanner sc;
-    protected  List<ProdutoAbstrato> listaProdutos = new ArrayList<>();
     private  SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public MenuAdmAbstract(Scanner sc, List <ProdutoAbstrato> listaProdutos) {
+    public MenuAdmAbstract(Scanner sc) {
         this.sc = sc;
-        this.listaProdutos=listaProdutos;
     }
 
     @Override
     public void visualizarProdutos() {
-        for (ProdutoAbstrato produtoNaLista : listaProdutos) {
+        for (ProdutoAbstrato produtoNaLista : ProdutoAbstrato.listaProdutos) {
             System.out.println(produtoNaLista);
         }
     }
@@ -57,7 +54,7 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
                 System.out.println(secoes);
             }
             EnumSecoesMercado secaoEscolhida = EnumSecoesMercado.escolhaSecaoMercado(sc.nextInt());
-            listaProdutos.add(new Mercado(nomeProduto, precoProduto, marcaProduto, EnumCategoria.MERCADO, dataValidade, secaoEscolhida));
+            ProdutoAbstrato.listaProdutos.add(new Mercado(nomeProduto, precoProduto, marcaProduto, EnumCategoria.MERCADO, dataValidade, secaoEscolhida));
             System.out.println("Produto adicionado");
 
         } else if (ch == 'l') {
@@ -65,7 +62,7 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
             String nomeEditora = sc.next();
             System.out.print("Digite o sobrenome do autor(a): ");
             String sobrenomeAutor = sc.next();
-            listaProdutos.add(new Livro(nomeProduto, precoProduto, marcaProduto, EnumCategoria.LIVRO, nomeEditora, sobrenomeAutor));
+            ProdutoAbstrato.listaProdutos.add(new Livro(nomeProduto, precoProduto, marcaProduto, EnumCategoria.LIVRO, nomeEditora, sobrenomeAutor));
             System.out.println("Produto adicionado");
 
         } else if (ch == 'i') {
@@ -73,7 +70,7 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
             String nomeSoftware = sc.next();
             System.out.print("Digite o tamanho da memória RAM: ");
             Double tamanhoMemoria = sc.nextDouble();
-            listaProdutos.add(new Informatica(nomeProduto, precoProduto, marcaProduto, EnumCategoria.INFORMATICA, nomeSoftware, tamanhoMemoria));
+            ProdutoAbstrato.listaProdutos.add(new Informatica(nomeProduto, precoProduto, marcaProduto, EnumCategoria.INFORMATICA, nomeSoftware, tamanhoMemoria));
             System.out.println("Produto adicionado");
         }
 
@@ -84,7 +81,7 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
         System.out.println("Digite o nome do produto que deseja editar: ");
         String nome = sc.next();
         boolean aux = true;
-        for (ProdutoAbstrato cadaProduto : listaProdutos) {
+        for (ProdutoAbstrato cadaProduto : ProdutoAbstrato.listaProdutos) {
             if (cadaProduto.getNome().equals(nome)) {
                 aux = false;
                 System.out.println("O que deseja editar?(Nome(n)/Preço(p)/Marca(m)/Categoria(c):");
@@ -129,11 +126,11 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
         System.out.println("Digite o nome do produto que deseja deletar: ");
         String nomeExcluido = sc.next();
         boolean aux1 = true;
-        for (ProdutoAbstrato c : listaProdutos) {
+        for (ProdutoAbstrato c : ProdutoAbstrato.listaProdutos) {
             if (c.getNome().equals(nomeExcluido)) {
                 aux1 = false;
                 System.out.println(c);
-                listaProdutos.remove(c);
+                ProdutoAbstrato.listaProdutos.remove(c);
                 System.out.println("Produto deletado!");
                 break;
             }
@@ -144,10 +141,7 @@ public abstract class MenuAdmAbstract implements MenuAdmAcoes {
     }
 
     public List<ProdutoAbstrato> getListaProdutos() {
-        return listaProdutos;
+        return ProdutoAbstrato.listaProdutos;
     }
 
-    public void setListaProdutos(List<ProdutoAbstrato> listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
 }

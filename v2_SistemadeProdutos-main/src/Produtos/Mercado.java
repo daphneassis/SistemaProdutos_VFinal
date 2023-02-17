@@ -1,8 +1,8 @@
 package Produtos;
 
-import Enums.EnumCategoria;
-import Enums.EnumSecoesMercado;
-import Interfaces.ProdutoAcoes;
+import enums.EnumCategoria;
+import enums.EnumSecoesMercado;
+import acoesMenu.ProdutoAcoes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

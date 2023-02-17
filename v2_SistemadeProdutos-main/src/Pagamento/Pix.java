@@ -1,28 +1,33 @@
-package Pagamento;
+package pagamento;
 
-import Menus.MenuClienteClasseConcreta;
 import Produtos.ProdutoAbstrato;
+import carrinhoDeCompras.CarrinhoDeCompras;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pix implements OpcaoDePagamento {
 
-    protected List <ProdutoAbstrato> listaProdutos;
-    protected  MenuClienteClasseConcreta menuClienteClasseConcreta = new MenuClienteClasseConcreta(null, listaProdutos);
+    protected List<ProdutoAbstrato> listaProdutosCarrinho = new ArrayList<>();
+
+    private CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras();
 
     @Override
-    public void pagar(List<ProdutoAbstrato> listaProdutosCarrinho) {
-        if (analiseAntiFraude() == true) {
-            System.out.println("Pagamento via Pix aprovado");
+    public void pagar() {
+        if (analiseAntiFraude()==true) {
+            System.out.println("pagamento via Pix aprovado!");
+        } else {
+            System.out.println("Forma de pagamento não aceita para esse valor");
         }
     }
 
     @Override
     public boolean analiseAntiFraude() {
-        if (menuClienteClasseConcreta.precoCarrinhoParaPgto()>= 1000) {
+        if (carrinhoDeCompras.precoCarrinhoParaPgto()>= 1000) {
             return false;
         } else {
             return true;
         }
     }
+
 }

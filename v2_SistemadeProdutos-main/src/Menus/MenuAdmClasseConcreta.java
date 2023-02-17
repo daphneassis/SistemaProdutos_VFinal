@@ -1,14 +1,11 @@
-package Menus;
+package menus;
 
-import Produtos.ProdutoAbstrato;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class MenuAdmClasseConcreta extends MenuAdmAbstract {
 
-    public MenuAdmClasseConcreta(Scanner sc, List<ProdutoAbstrato> listaProdutos) {
-        super(sc, listaProdutos);
+    public MenuAdmClasseConcreta(Scanner sc) {
+        super(sc);
     }
 
     public  void menuAdministrador() {

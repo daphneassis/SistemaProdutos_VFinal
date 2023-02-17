@@ -1,15 +1,20 @@
 package Produtos;
 
-import Enums.EnumCategoria;
-import Interfaces.ProdutoAcoes;
+import enums.EnumCategoria;
 
-public abstract class ProdutoAbstrato implements ProdutoAcoes, Comparable<ProdutoAbstrato> {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class ProdutoAbstrato implements Comparable<ProdutoAbstrato> {
 
     private String nome;
     private Double preco;
     private String marca;
     private EnumCategoria categoria;
 
+    public static List<ProdutoAbstrato> listaProdutos = new ArrayList<>();
+
+    public ProdutoAbstrato(){}
     public ProdutoAbstrato(String nome, Double preco, String marca, EnumCategoria categoria) {
         this.nome = nome;
         this.preco = preco;
@@ -47,6 +52,10 @@ public abstract class ProdutoAbstrato implements ProdutoAcoes, Comparable<Produt
 
     public void setCategoria(EnumCategoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<ProdutoAbstrato> getListaProdutos() {
+        return listaProdutos;
     }
 
 }

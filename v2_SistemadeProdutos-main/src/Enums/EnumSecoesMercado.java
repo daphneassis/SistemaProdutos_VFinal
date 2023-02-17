@@ -1,4 +1,4 @@
-package Enums;
+package enums;
 
 public enum EnumSecoesMercado {
     HIGIENE("Limpeza e higiene", 1),

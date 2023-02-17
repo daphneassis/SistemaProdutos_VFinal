@@ -1,6 +1,6 @@
-package ValidarUsuario;
+package validarUsuario;
 
-import Pessoas.Cliente;
+import pessoas.Cliente;
 
 public class ValidarCliente {
 

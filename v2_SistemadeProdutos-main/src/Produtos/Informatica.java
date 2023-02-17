@@ -1,8 +1,8 @@
 package Produtos;
 
-import Enums.EnumCategoria;
-import Interfaces.InformaticaAcoes;
-import Interfaces.ProdutoAcoes;
+import enums.EnumCategoria;
+import acoesMenu.InformaticaAcoes;
+import acoesMenu.ProdutoAcoes;
 
 public class Informatica extends ProdutoAbstrato implements ProdutoAcoes, InformaticaAcoes {
 

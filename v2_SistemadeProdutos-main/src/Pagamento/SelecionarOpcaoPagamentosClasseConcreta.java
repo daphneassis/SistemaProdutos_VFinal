@@ -1,4 +1,4 @@
-package Pagamento;
+package pagamento;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class SelecionarOpcaoPagamentosClasseConcreta implements SelecionarOpcoes
     public OpcaoDePagamento escolherOpcao(OpcaoDePagamento[] opcoesArray) {
         System.out.println("Qual a opção que deseja escolher? ");
         int opcao = sc.nextInt();
-        System.out.print("Pagamento selecionado: ");
+        System.out.print("pagamento selecionado: ");
         return opcoesArray[opcao];
     }
 }

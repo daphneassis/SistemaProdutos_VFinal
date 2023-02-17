@@ -1,4 +1,4 @@
-package Interfaces;
+package acoesMenu;
 
 public interface MenuAdmAcoes {
 

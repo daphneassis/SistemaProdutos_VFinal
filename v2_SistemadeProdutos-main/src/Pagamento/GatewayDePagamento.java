@@ -1,4 +1,4 @@
-package Pagamento;
+package pagamento;
 
 import Produtos.ProdutoAbstrato;
 
@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface GatewayDePagamento {
 
-    void pagar(List<ProdutoAbstrato> listaProdutosCarrinho);
+    void pagar();
+
+
 }

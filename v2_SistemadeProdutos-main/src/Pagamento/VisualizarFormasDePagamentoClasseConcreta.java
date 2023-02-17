@@ -1,4 +1,4 @@
-package Pagamento;
+package pagamento;
 
 public class VisualizarFormasDePagamentoClasseConcreta implements VisualizarFormasDePagamentoInterface {
 
@@ -12,7 +12,7 @@ public class VisualizarFormasDePagamentoClasseConcreta implements VisualizarForm
         opcoesArray[1] = new CartaoDeCredito();
         opcoesArray[2] = new FaturamentoPj();
         opcoesArray[3] = new Pix();
-        System.out.println("Opções de Pagamento: ");
+        System.out.println("Opções de pagamento: ");
         for (int i = 0; i < opcoesArray.length; i++) {
             System.out.println(i + " "+ opcoesArray[i].getClass().getSimpleName());
         }

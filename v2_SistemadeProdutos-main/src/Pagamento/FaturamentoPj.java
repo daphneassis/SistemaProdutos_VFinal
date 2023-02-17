@@ -1,18 +1,13 @@
-package Pagamento;
-
-import Produtos.ProdutoAbstrato;
-
-import java.util.List;
+package pagamento;
 
 public class FaturamentoPj implements OpcaoDePagamento {
 
-    protected List<ProdutoAbstrato> listaProdutosCarrinho;
 
     @Override
-    public void pagar(List<ProdutoAbstrato> listaProdutosCarrinho) {
+    public void pagar() {
 
-        if (analiseAntiFraude() == true) {
-            System.out.println("Pagamento via faturamento");
+        if (analiseAntiFraude()==true) {
+            System.out.println("pagamento via faturamento");
         }
     }
     @Override

@@ -1,6 +1,6 @@
-package Menus;
+package menus;
 
-import Pessoas.Cliente;
+import pessoas.Cliente;
 
 import java.util.Scanner;
 
